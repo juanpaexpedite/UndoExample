@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:UndoExample.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:locator="using:UndoExample"
+        x:Class="UndoExample.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="UndoExample"
+        DataContext="{x:Static locator:ViewModelLocator.Instance}">
+
+  <Border BorderThickness="32" BorderBrush="{Binding MainColor.Color}" DataContext="{Binding MainWindowViewModel}">
+    <Design.DataContext>
+      <vm:MainWindowViewModel/>
+    </Design.DataContext>
+  <Grid  Margin="12" >
+    <StackPanel Spacing="12">
+    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <TextBlock Text="{Binding MainColor.Color}" HorizontalAlignment="Center"/>
+    <Button Content="Add" Command="{Binding RandomColorCommand}" HorizontalAlignment="Center"/>
+    <Button Content="Undo" Command="{Binding UndoCommand}"  HorizontalAlignment="Center"/>
+    </StackPanel>
+  </Grid>
+  </Border>
+  
+    
+
+</Window>
