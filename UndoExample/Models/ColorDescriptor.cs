@@ -14,8 +14,7 @@ namespace UndoExample.Models
             get { return name; }
             set
             {
-                //SetTrackProperty(ref name, value);
-                SetProperty(ref name, value);
+                SetTrackProperty(ref name, value);
             }
         }
 
@@ -26,7 +25,6 @@ namespace UndoExample.Models
             set
             {
                 SetTrackProperty(ref color, value);
-                //SetProperty(ref color, value);
             }
         }
     }
