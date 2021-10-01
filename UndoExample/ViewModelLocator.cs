@@ -11,6 +11,8 @@ namespace UndoExample
 {
     public class ViewModelLocator : ObservableObject
     {
+        public static Stack<(object entity,string property, object value)> UndoableStack = new Stack<(object entity, string property, object value)>();
+
         public static Dictionary<string, Stack<object>> States = new Dictionary<string, Stack<object>>();
         public static ViewModelLocator Instance { get; set; }
 

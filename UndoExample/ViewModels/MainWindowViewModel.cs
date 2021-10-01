@@ -1,6 +1,7 @@
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 using UndoExample.Managers;
@@ -27,7 +28,8 @@ namespace UndoExample.ViewModels
 
         private void OnUndo()
         {
-            StateManager.RestoreState();
+            //StateManager.RestoreState();
+            EntityStateManager.Undo();
         }
 
         public MainWindowViewModel()
@@ -39,5 +41,7 @@ namespace UndoExample.ViewModels
             RandomColorCommand = new RelayCommand(OnRandomColor);
             UndoCommand = new RelayCommand(OnUndo);
         }
+
+        public ObservableCollection<string> History { get; } = new ObservableCollection<string>();
     }
 }

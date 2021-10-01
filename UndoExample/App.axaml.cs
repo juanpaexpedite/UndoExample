@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using System;
 using System.Collections.Generic;
 using UndoExample.Managers;
 using UndoExample.Models;
@@ -16,12 +17,16 @@ namespace UndoExample
             StateManager.AddTracking(ref Entity.SaveState);
             StateManager.Start();
 
+            Entity.StackUndoable = EntityStateManager.StackUndoable;
+
             ViewModelLocator.Instance = new ViewModelLocator();
 
             ViewModelLocator.Instance.InstanceTrackViewModel(new MainWindowViewModel(), nameof(MainWindowViewModel));
 
             
         }
+
+       
 
         public override void Initialize()
         {

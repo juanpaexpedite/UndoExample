@@ -14,6 +14,8 @@ namespace UndoExample.Managers
             action = SaveState;
         }
 
+       
+
         public static void Start()
         {
             InitializeWatch();
